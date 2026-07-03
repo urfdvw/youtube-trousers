@@ -1,0 +1,19 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "transform": {
+          "path": "/",
+          "query": ""
+        }
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://(www\\.|m\\.)?youtube\\.com/shorts(/|$|\\?)",
+      "resourceTypes": ["main_frame"]
+    }
+  }
+]

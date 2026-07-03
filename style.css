@@ -1,0 +1,53 @@
+/*
+ * Static kill list for everything Shorts on youtube.com.
+ * Applied at document_start so Shorts UI never flashes on screen.
+ */
+
+/* --- Sidebar / guide --- */
+/* Full sidebar "Shorts" entry */
+ytd-guide-entry-renderer:has(a[title="Shorts"]),
+ytd-guide-entry-renderer:has(a[href^="/shorts"]),
+/* Collapsed mini sidebar "Shorts" entry */
+ytd-mini-guide-entry-renderer[aria-label="Shorts"],
+ytd-mini-guide-entry-renderer:has(a[title="Shorts"]),
+
+/* --- Shorts shelves (home, subscriptions, search, channel pages) --- */
+ytd-reel-shelf-renderer,
+ytd-rich-shelf-renderer[is-shorts],
+ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-shorts]),
+ytd-rich-section-renderer:has([is-shorts]),
+grid-shelf-view-model:has(ytm-shorts-lockup-view-model),
+grid-shelf-view-model:has(a[href^="/shorts"]),
+ytd-rich-section-renderer:has(grid-shelf-view-model a[href^="/shorts"]),
+
+/* --- Individual Shorts items in feeds, search, sidebar recommendations --- */
+ytd-rich-item-renderer:has(a[href^="/shorts"]),
+ytd-video-renderer:has(a[href^="/shorts"]),
+ytd-grid-video-renderer:has(a[href^="/shorts"]),
+ytd-compact-video-renderer:has(a[href^="/shorts"]),
+ytm-shorts-lockup-view-model,
+ytm-shorts-lockup-view-model-v2,
+/* Items marked with the SHORTS thumbnail overlay badge */
+ytd-rich-item-renderer:has([overlay-style="SHORTS"]),
+ytd-video-renderer:has([overlay-style="SHORTS"]),
+ytd-grid-video-renderer:has([overlay-style="SHORTS"]),
+ytd-compact-video-renderer:has([overlay-style="SHORTS"]),
+
+/* --- Channel page "Shorts" tab --- */
+yt-tab-shape[tab-title="Shorts"],
+tp-yt-paper-tab:has(.tp-yt-paper-tab[aria-label="Shorts"]),
+
+/* --- Shorts in notifications dropdown --- */
+ytd-notification-renderer:has(a[href^="/shorts"]),
+
+/* --- The Shorts player page itself (belt and suspenders; URL is redirected too) --- */
+ytd-shorts,
+ytd-reel-video-renderer,
+shorts-video,
+
+/* --- Mobile web (m.youtube.com) --- */
+ytm-reel-shelf-renderer,
+ytm-pivot-bar-item-renderer:has(.pivot-shorts),
+ytm-video-with-context-renderer:has(a[href^="/shorts"]) {
+  display: none !important;
+}
