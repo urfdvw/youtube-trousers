@@ -3,6 +3,9 @@
   "name": "YouTube Trousers",
   "version": "1.0.0",
   "description": "Hides everything related to YouTube Shorts: the Shorts button, Shorts pages, and any Shorts in feeds, search, and recommendations.",
+  "icons": {
+    "128": "icon128.png"
+  },
   "permissions": ["declarativeNetRequest"],
   "host_permissions": [
     "*://youtube.com/*",
